@@ -94,6 +94,9 @@ public class AppActivity extends ComponentActivity {
         resetButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                shopEditText.setText("");
+                clerkEditText.setText("");
+                shopEditText.setBackground(originalDrawable);
                 if(preferencesRadioButton.isChecked() == false){ toastAlert(); return; }
                 SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.preference_file_name), Context.MODE_PRIVATE);
                 Integer counter = prefs.getInt(getResources().getString(R.string.count),0);
@@ -101,9 +104,7 @@ public class AppActivity extends ComponentActivity {
                 prefs.edit().remove(String.format("Shop-%s", counter)).apply();
                 counter--;
                 prefs.edit().putInt(getResources().getString(R.string.count),counter).apply();
-                shopEditText.setText("");
-                clerkEditText.setText("");
-                shopEditText.setBackground(originalDrawable);
+
             }
         });
 
@@ -112,10 +113,11 @@ public class AppActivity extends ComponentActivity {
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(preferencesRadioButton.isChecked() == false){ toastAlert(); return;}
+
+                if(preferencesRadioButton.isChecked() == false){ shopEditText.setText("");
+                    clerkEditText.setText(""); toastAlert(); return;}
                 String text = shopEditText.getEditableText().toString();
-                shopEditText.setText("");
-                clerkEditText.setText("");
+
                 if(text.trim().isEmpty()){
                     shopEditText.setBackgroundResource(R.drawable.red_border);
                 }
@@ -127,6 +129,8 @@ public class AppActivity extends ComponentActivity {
                     prefs.edit().putInt(getResources().getString(R.string.count),counter).apply();
                     shopEditText.setBackground(originalDrawable);
                 }
+                shopEditText.setText("");
+                clerkEditText.setText("");
             }
         });
 
@@ -134,6 +138,9 @@ public class AppActivity extends ComponentActivity {
         loadButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                shopEditText.setText("");
+                clerkEditText.setText("");
+                shopEditText.setBackground(originalDrawable);
                 if(preferencesRadioButton.isChecked() == false){ toastAlert(); return;}
                 SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.preference_file_name), Context.MODE_PRIVATE);
                 List<String> x = new ArrayList<>();
@@ -149,9 +156,7 @@ public class AppActivity extends ComponentActivity {
                 }
                 }
                 fillRecycleView(x);
-                shopEditText.setText("");
-                clerkEditText.setText("");
-                shopEditText.setBackground(originalDrawable);
+
 
             }
         });
