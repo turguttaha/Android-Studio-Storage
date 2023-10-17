@@ -31,7 +31,7 @@ public class AppActivity extends ComponentActivity {
         recyclerView.setAdapter(new RecyclerViewItemAdapter(items));
     }
     private void toastAlert(){
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,getResources().getString(R.string.toast_error),Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +95,12 @@ public class AppActivity extends ComponentActivity {
             @Override
             public void onClick(View view) {
                 if(preferencesRadioButton.isChecked() == false){ toastAlert(); return; }
-                SharedPreferences prefs = getSharedPreferences("PrefContent", Context.MODE_PRIVATE);
-                Integer counter = prefs.getInt("counter",0);
+                SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.preference_file_name), Context.MODE_PRIVATE);
+                Integer counter = prefs.getInt(getResources().getString(R.string.count),0);
                 counter = (counter<1)? 1:counter;
                 prefs.edit().remove(String.format("Shop-%s", counter)).apply();
                 counter--;
-                prefs.edit().putInt("counter",counter).apply();
+                prefs.edit().putInt(getResources().getString(R.string.count),counter).apply();
                 shopEditText.setText("");
                 clerkEditText.setText("");
                 shopEditText.setBackground(originalDrawable);
@@ -120,11 +120,11 @@ public class AppActivity extends ComponentActivity {
                     shopEditText.setBackgroundResource(R.drawable.red_border);
                 }
                 else{
-                    SharedPreferences prefs = getSharedPreferences("PrefContent", Context.MODE_PRIVATE);
-                    Integer counter = prefs.getInt("counter",0);
+                    SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.preference_file_name), Context.MODE_PRIVATE);
+                    Integer counter = prefs.getInt(getResources().getString(R.string.count),0);
                     counter++;
                     prefs.edit().putString(String.format("Shop-%s", counter), text).apply();
-                    prefs.edit().putInt("counter",counter).apply();
+                    prefs.edit().putInt(getResources().getString(R.string.count),counter).apply();
                     shopEditText.setBackground(originalDrawable);
                 }
             }
@@ -135,13 +135,13 @@ public class AppActivity extends ComponentActivity {
             @Override
             public void onClick(View view) {
                 if(preferencesRadioButton.isChecked() == false){ toastAlert(); return;}
-                SharedPreferences prefs = getSharedPreferences("PrefContent", Context.MODE_PRIVATE);
+                SharedPreferences prefs = getSharedPreferences(getResources().getString(R.string.preference_file_name), Context.MODE_PRIVATE);
                 List<String> x = new ArrayList<>();
 
                 Map<String, ?> allEntries = prefs.getAll();
                 allEntries.remove("counter");
                 if(allEntries.size()==0){
-                    x.add("No prefs saved");
+                    x.add(getResources().getString(R.string.no_preferences));
                 }
                 else{
                 for (Map.Entry<String, ?> entry : allEntries.entrySet()) {

@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">BlankProject</string>
+    <string name="app_name"> JM.EX3.PE.r0910951</string>
+    <string name="toast_error">Not yet implemented</string>
+    <string name="preference_file_name">PrefContent</string>
+    <string name="no_preferences">No prefs saved</string>
+    <string name="count">counter</string>
+    <string name="save_button">SAVE</string>
+    <string name="load_button">LOAD</string>
+    <string name="reset_button">RESET</string>
+    <string name="clerk_hint">Clerk</string>
+    <string name="shop_hint">Shop</string>
+    <string name="rb_database">Database</string>
+    <string name="rb_preferences">Preferences</string>
+    <string name="rb_file">File</string>
 </resources>

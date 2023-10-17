@@ -11,7 +11,7 @@
         android:id="@+id/resetButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="RESET"
+        android:text="@string/reset_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/loadButton"
@@ -21,7 +21,7 @@
         android:id="@+id/saveButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="SAVE"
+        android:text="@string/save_button"
         app:layout_constraintEnd_toStartOf="@+id/loadButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/radioGroup2"
@@ -32,7 +32,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="LOAD"
+        android:text="@string/load_button"
         app:layout_constraintEnd_toStartOf="@+id/resetButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/saveButton"
@@ -45,7 +45,7 @@
         android:layout_marginStart="2dp"
         android:ems="10"
         android:enabled="false"
-        android:hint="Clerk"
+        android:hint="@string/clerk_hint"
         android:inputType="text"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/loadButton"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:ems="10"
-        android:hint="Shop"
+        android:hint="@string/shop_hint"
         android:inputType="text"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/clerkEditText"
@@ -94,19 +94,19 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:checked="true"
-            android:text="Preferences" />
+            android:text="@string/rb_preferences" />
 
         <RadioButton
             android:id="@+id/fileRadioButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="File" />
+            android:text="@string/rb_file" />
 
         <RadioButton
             android:id="@+id/databaseRadioButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Database" />
+            android:text="@string/rb_database" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
